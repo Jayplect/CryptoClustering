@@ -5,15 +5,50 @@ Unsupervised learning is a powerful branch of machine learning that aims to unco
 
 ## Dependencies used
 
-![SkLearn](https://github.com/Jayplect/CryptoClustering/assets/107348074/e94411f3-6b4d-4046-9564-e55321038205) ![Pandas](https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white)
+![SkLearn](https://img.shields.io/badge/scikit_learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white)
 
 ## Methodology
 ### Data Collection and Preprocessing: 
-The datasets used for analysis was provided by edX Boot Camps LLC, and is intended for educational purposes only. To ensure the data quality and representativeness, I performed some basic preprocessing steps such as data cleaning, normalization, and checking for missing values. I utilized the `StandardScaler()` module from scikit-learn to normalize the data from the CSV file.
+The datasets used for analysis was provided by edX Boot Camps LLC, and is intended for educational purposes only. To ensure the data quality and representativeness, I performed some basic preprocessing steps such as data cleaning, feature selection ("price_change_percentage_24h" and "price_change_percentage_7d"), normalization, and checking for missing values. I utilized the `StandardScaler()` module from scikit-learn to normalize the data from the CSV file.
 
-Create a DataFrame with the scaled data and set the "coin_id" index from the original DataFrame as the index for the new DataFrame.
+### Clustering Techniques: 
+I implemented the elbow method to find the best value for k using the original scaled dataFrame. From the elbow curve above (Fig 1), 4 seems to be the best number of centroids to use in the kMeans clustering algorithm.
 
-The first five rows of the scaled DataFrame should appear as follows:
+-Fig 1: Elbow curve for brute forced Kmeans on Original Scaled dataset
+
+![elbow_curve_orig_data](https://github.com/Jayplect/CryptoClustering/assets/107348074/f8ea8450-dbd9-4498-83be-7960074d0c9d)
+
+With the Kmeans identified above, I then clustered the cryptocurrencies by fitting the K-means model using the original scaled dataframe after which I predicted the clusters to group the cryptocurrencies again, using the original scaled dataframe. I then created a scatter plot(Fig 2) using `hvPlot` with the seleted features "price_change_percentage_24h" and "price_change_percentage_7d".
+The color represents the labels found using K-means. The "coin_id" column was added in the hover_cols parameter to identify the cryptocurrency represented by each data point.
+
+- Fig 2: Scatter plot of Original Scaled data
+
+![scatterplot_orig_data](https://github.com/Jayplect/CryptoClustering/assets/107348074/519744b4-2bcb-4813-bce1-d997f57f2b4e)
+
+### Dimensionality Reduction:
+In this phase, I implemented dimensionality reduction technique to reduce the features to three principal components. I also retrieve the explained variance to determine how much information can be attributed to each principal component. _The total explained variance of the three principal components is 89.5%. This means that although we reduced the dimension of the scaled data to 3 but only lost the ability to explain 10.5% of the variance in the dataset_. Using the elbow method once again, I obsereved the best Value for k (Fig 3) using the PCA data. The elbow curve for the PCA dimension redution data again shows a best k-value of 4. This is perhaps more pronounced compared to the best predicted k-value in the original dataset.
+
+Fig 3: Elbow curve for PCA data
+
+![elbow_curve_pca](https://github.com/Jayplect/CryptoClustering/assets/107348074/a2f0a8b0-ca16-4286-a2e4-7615a44e5b62)
+
+Further, I clustered the cryptocurrencies with K-means using the PCA data by fitting the Kmeans model and predicting the clusters to group the cryptocurrencies using the PCA data. A scatter plot of the three reduced PCAs(Fig 4) shows a clear distinction amongst the clusters. However, we do not know which of the columns are present in each of the PCAs. As revealed from the correlations (Table 1), no linear relationships exists amongst these PCAs. I then inputed the predicted clusters from the PCA reduced dimension prediction into the original scaled data and repeated the scatter plot graphing with the new cluster (Fig. 5). As expected, the scatter plot above only strengthens the earlier observation from the elbow curve in the original scaled dataset and the PCA transformed dataset. The best centroids were observed to be around 4 for both curves. In other words no differences were noticed when clusters are predicted from the scaled dataset nor when predicted from the reduced dimensionality.
+
+Fig 4: Scatter plot of the three reduced PCAs
+
+![image](https://github.com/Jayplect/CryptoClustering/assets/107348074/025d0ea8-200d-4615-a451-710bd10d0999)
+
+A scatter plot similar to that made for the orginal scaled data is shown below for PCA_1 and PCA_2. However, the color of the graph points represent the labels found using K-means on the PCA data.
+
+Fig 5: 
+
+![scatterplot_pca_clusters](https://github.com/Jayplect/CryptoClustering/assets/107348074/85cd9c78-bf52-4490-9878-113674a5c320)
+
+The scatter plot above when junxtaposed with the scatter plot  only strengthens the earlier observation from the elbow curve in the original scaled dataset and the PCA transformed dataset. The best centroids were observed to be around 4 for both curves. In other words no differences were noticed when clusters are predicted from the scaled dataset nor when predicted from the reduced dimensionality.
+
+
+A scatter plot similar to that made for the orginal scaled data is shown below for PCA_1 and PCA_2. However, the color of the graph points represent the labels found using K-means on the PCA data.
 
 ### Step 2: Summary Statistics 
 
