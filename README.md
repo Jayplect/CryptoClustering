@@ -1,7 +1,7 @@
 ## Project Description
 Unsupervised learning is a powerful branch of machine learning that aims to uncover patterns, structures, and relationships within datasets without the need for explicit labels or target values. The main objective of this project is to explore, evaluate and discover valuable insights, by leveraging the power of unsupervised learning to predict if cryptocurrencies are affected by 24-hour or 7-day price changes.
 
-  ![image](https://github.com/Jayplect/CryptoClustering/assets/107348074/789cfd4b-3156-401a-823f-77feb12da371)
+<img width="350" src="https://github.com/Jayplect/CryptoClustering/assets/107348074/789cfd4b-3156-401a-823f-77feb12da371">
 
 ## Dependencies used
 
@@ -15,7 +15,7 @@ The datasets used for analysis was provided by edX Boot Camps LLC, and is intend
 ### Clustering Techniques: 
 I implemented the elbow method to find the best value for k using the original scaled dataFrame. From the elbow curve above (Fig 1), 4 seems to be the best number of centroids to use in the kMeans clustering algorithm.
 
--Fig 1: Elbow curve for brute forced Kmeans on Original Scaled dataset
+- Fig 1: Elbow curve for brute forced Kmeans on Original Scaled dataset
 
 ![elbow_curve_orig_data](https://github.com/Jayplect/CryptoClustering/assets/107348074/f8ea8450-dbd9-4498-83be-7960074d0c9d)
 
@@ -35,8 +35,9 @@ In this phase, I implemented dimensionality reduction technique to reduce the fe
 
 Further, I clustered the cryptocurrencies with K-means using the PCA data by fitting the Kmeans model and predicting the clusters to group the cryptocurrencies using the PCA data. A scatter plot of the three reduced PCAs(Fig 4) shows a clear distinction amongst the clusters. However, we do not know which of the columns are present in each of the PCAs. As revealed from the correlations (Table 1), no linear relationships exists amongst these PCAs. I then inputed the predicted clusters from the PCA reduced dimension prediction into the original scaled data and repeated the scatter plot graphing with the new cluster (Fig. 5).
 
-Table 1: Correlation amongst the three PCAs
-<img width="190" alt="image" src="https://github.com/Jayplect/CryptoClustering/assets/107348074/0c8d75f6-9d13-4217-8a47-98db46ed3000">
+- Table 1: Correlation amongst the three PCAs
+
+<img width="500" alt="image" src="https://github.com/Jayplect/CryptoClustering/assets/107348074/0c8d75f6-9d13-4217-8a47-98db46ed3000">
 
 - Fig 4: Scatter plot of the three PCAs
 
