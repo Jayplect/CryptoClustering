@@ -1,16 +1,19 @@
-## Description
+## Project Description
+Unsupervised learning is a powerful branch of machine learning that aims to uncover patterns, structures, and relationships within datasets without the need for explicit labels or target values. The main objective of this project is to explore, evaluate and discover valuable insights, by leveraging the power of unsupervised learning to predict if cryptocurrencies are affected by 24-hour or 7-day price changes.
 
+  ![image](https://github.com/Jayplect/CryptoClustering/assets/107348074/789cfd4b-3156-401a-823f-77feb12da371)
 
 ## Dependencies used
-<img width="120" src = https://user-images.githubusercontent.com/107348074/236379504-0f0e8534-6435-4924-b72d-283946e03c4b.png>
-<img width="120" src = https://user-images.githubusercontent.com/107348074/236379877-e0e3b90e-217f-4700-ade2-df8b5ef8f23b.png>
-<img width="120" src =https://user-images.githubusercontent.com/107348074/236379730-0286f397-c9e0-4e0c-a91c-e07d64f6ceec.png>
-<img width="120" src = https://user-images.githubusercontent.com/107348074/236379825-80dc02bc-46c1-46fa-9634-dc28cdcb5704.png>
 
-## Summary of Dataset
+![SkLearn](https://github.com/Jayplect/CryptoClustering/assets/107348074/e94411f3-6b4d-4046-9564-e55321038205) ![Pandas](https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white)
 
-## Project Steps
-### Step 1: Merging both data sets 
+## Methodology
+### Data Collection and Preprocessing: 
+The datasets used for analysis was provided by edX Boot Camps LLC, and is intended for educational purposes only. To ensure the data quality and representativeness, I performed some basic preprocessing steps such as data cleaning, normalization, and checking for missing values. I utilized the `StandardScaler()` module from scikit-learn to normalize the data from the CSV file.
+
+Create a DataFrame with the scaled data and set the "coin_id" index from the original DataFrame as the index for the new DataFrame.
+
+The first five rows of the scaled DataFrame should appear as follows:
 
 ### Step 2: Summary Statistics 
 
